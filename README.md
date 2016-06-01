@@ -1,8 +1,13 @@
- makeCacheMatrix creates a special "matrix" object that can cache its inverse. 
+### Introduction
 
- You can create a matrix object as i created below 
-Code :-
-makeCacheMatrix <- function(x=matrix()){
+ makeCacheMatrix creates a special "matrix" object that can cache its inverse.
+ cacheSolve computes the inverse of the special "matrix" returned by makeCacheMatrix. 
+
+### Example: Caching the Matrix Inverse
+
+<!-- -->
+
+   makeCacheMatrix <- function(x=matrix()){
   invrs <- NULL
   set <- function(y) {
     x <<- y
@@ -16,21 +21,10 @@ makeCacheMatrix <- function(x=matrix()){
        getInvrs = getInvrs)
  }
 
-Usage :- 
-
-> mat <- makeCacheMatrix(matrix(2:5,2,2))
- You can see the matrix :-
-> mat <- makeCacheMatrix(matrix(2:5,2,2))
-> mat$get()
-     [,1] [,2]
-[1,]    2    4
-[2,]    3    5
-
 cacheSolve computes the inverse of the special "matrix" returned by makeCacheMatrix. 
+You can see the inverse of the matrix calculated by cacheSolve as below:-
 
- You can see the inverse of the matrix calculated by cacheSolve as below:-
-Code :-
-cacheSolve <- function(x, ...) {
+    cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
   invrs <- x$getInvrs()
   if(!is.null(invrs)) {
@@ -44,17 +38,19 @@ cacheSolve <- function(x, ...) {
   
 }
 
-Usage:- 
+### Assignment: Code Running Example
+
+> mat <- makeCacheMatrix(matrix(2:5,2,2))
+> mat$get()
+     [,1] [,2]
+[1,]    2    4
+[2,]    3    5
 > cacheSolve(mat)
      [,1] [,2]
 [1,] -2.5    2
 [2,]  1.5   -1
-
- Again calculating inverse for the same matrix will get the cached data which has already been calculated
 > cacheSolve(mat)
 getting cached data
      [,1] [,2]
 [1,] -2.5    2
 [2,]  1.5   -1
-
-

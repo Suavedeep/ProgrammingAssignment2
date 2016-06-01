@@ -3,10 +3,9 @@
  makeCacheMatrix creates a special "matrix" object that can cache its inverse.
  cacheSolve computes the inverse of the special "matrix" returned by makeCacheMatrix. 
 
-### Example: Caching the Matrix Inverse
+### Caching the Inverse of a Matrix
 
-<!-- -->
-
+<!--
    makeCacheMatrix <- function(x=matrix()){
   invrs <- NULL
   set <- function(y) {
@@ -20,11 +19,12 @@
        setInvrs = setInvrs,
        getInvrs = getInvrs)
  }
+ -->
 
 cacheSolve computes the inverse of the special "matrix" returned by makeCacheMatrix. 
 You can see the inverse of the matrix calculated by cacheSolve as below:-
 
-    cacheSolve <- function(x, ...) {
+ <!--   cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
   invrs <- x$getInvrs()
   if(!is.null(invrs)) {
@@ -36,10 +36,10 @@ You can see the inverse of the matrix calculated by cacheSolve as below:-
   x$setInvrs(invrs)
   invrs
   
-}
+} -->
 
 ### Assignment: Code Running Example
-
+<!-- 
 > mat <- makeCacheMatrix(matrix(2:5,2,2))
 > mat$get()
      [,1] [,2]
@@ -54,3 +54,4 @@ getting cached data
      [,1] [,2]
 [1,] -2.5    2
 [2,]  1.5   -1
+-->
